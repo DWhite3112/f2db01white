@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  p #{query.rows} #{query.cols}
+  - Number(query.rows)
+  - Number(query.cols)
+
+ 
