@@ -25,5 +25,5 @@ console.log("First object saved")
 });
 }
 let reseed = true;
-if (reseed) {recreateDB();
+if (reseed) {recreatDB();
 }
