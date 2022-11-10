@@ -19,7 +19,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var kingsRouter = require('./routes/kings');
 var gridbuildRouter = require('./routes/gridbuild')
-//var resourceRouter = require('.routes/resource')
+var resourceRouter = require('.routes/resource')
 var app = express();
 
 // view engine setup
@@ -30,7 +30,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use('/kings', kingsRouter)
 app.use('/gridbuild', gridbuildRouter)
-//app.use('/resource', resourceRouter)
+app.use('/resource', resourceRouter)
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));

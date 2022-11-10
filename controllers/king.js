@@ -19,3 +19,14 @@ res.send('NOT IMPLEMENTED: King delete DELETE ' + req.params.id);
 exports.costume_update_put = function(req, res) {
 res.send('NOT IMPLEMENTED: King update PUT' + req.params.id);
 };
+// List of all Costumes
+exports.king_list = async function(req, res) {
+    try{
+    theKings = await King.find();
+    res.send(theKings);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };
