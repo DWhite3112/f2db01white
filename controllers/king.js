@@ -22,11 +22,23 @@ res.send('NOT IMPLEMENTED: King update PUT' + req.params.id);
 // List of all Costumes
 exports.king_list = async function(req, res) {
     try{
-    theKings = await King.find();
-    res.send(theKings);
+    theKing = await King.find();
+    res.send(theKing);
     }
     catch(err){
     res.status(500);
     res.send(`{"error": ${err}}`);
     }
     };
+    // VIEWS
+// Handle a show all view
+exports.king_view_all_Page = async function(req, res) {
+try{
+theKing = await King.find();
+res.render('king', { title: 'King Search Results', results: theKing });
+}
+catch(err){
+res.status(500);
+res.send(`{"error": ${err}}`);
+}
+};
