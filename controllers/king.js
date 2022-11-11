@@ -1,25 +1,25 @@
 var King = require('../models/king');
-// List of all Costumes
+// List of all King
 exports.king_list = function(req, res) {
 res.send('NOT IMPLEMENTED: King list');
 };
-// for a specific Costume.
+// for a specific King.
 exports.king_detail = function(req, res) {
 res.send('NOT IMPLEMENTED: King detail: ' + req.params.id);
 };
-// Handle Costume create on POST.
+// Handle King create on POST.
 exports.king_create_post = function(req, res) {
 res.send('NOT IMPLEMENTED: King create POST');
 };
-// Handle Costume delete form on DELETE.
+// Handle King delete form on DELETE.
 exports.king_delete = function(req, res) {
 res.send('NOT IMPLEMENTED: King delete DELETE ' + req.params.id);
 };
-// Handle Costume update form on PUT.
-exports.costume_update_put = function(req, res) {
+// Handle King update form on PUT.
+exports.king_update_put = function(req, res) {
 res.send('NOT IMPLEMENTED: King update PUT' + req.params.id);
 };
-// List of all Costumes
+// List of all King
 exports.king_list = async function(req, res) {
     try{
     theKing = await King.find();

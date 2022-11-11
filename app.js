@@ -9,40 +9,48 @@ var King = require("./models/king");
 
 // Atlas Mongo DB connection
 require('dotenv').config();
-const connectionString =
-process.env.MONGO_CON
+const connectionString = process.env.MONGO_CON
 mongoose = require('mongoose');
 mongoose.connect(connectionString,
 {useNewUrlParser: true,
 useUnifiedTopology: true});
 
+//Get the default connection
+var db = mongoose.connection;
+
+//Bind connection to error event
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once("open", function(){
+console.log("Connection to DB succeeded")});
+
 //server start
 async function recreatDB(){
-  await King.delete.Many();
+  await King.deleteMany();
 
-  let insastance1 = new
+  let instance1 = new
   King({name:"Dree", kingdom:'the world',
 years_ruled:300});
 instance1.save( function(err,doc) {
 if(err) return console.error(err);
 console.log("First object saved")
 });
-  let insastance2 = new
+  let instance2 = new
   King({name:"Alexander", kingdom:'Macedonia',
 years_ruled:33});
-instance1.save( function(err,doc) {
+instance2.save( function(err,doc) {
 if(err) return console.error(err);
 console.log("First object saved")
 });
-  let insastance3 = new
+  let instance3 = new
   King({name:"Alfred", kingdom:'Wessex',
 years_ruled:51});
-instance1.save( function(err,doc) {
+instance3.save( function(err,doc) {
 if(err) return console.error(err);
 console.log("First object saved")
 });
 }
-let reseed = true;
+//make true to reset 
+let reseed = false;
 if (reseed) {recreatDB();
 }
 
@@ -51,7 +59,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var kingsRouter = require('./routes/kings');
 var gridbuildRouter = require('./routes/gridbuild')
-var resourceRouter = require('.routes/resource')
+var resourceRouter = require('./routes/resource')
 var app = express();
 
 // view engine setup
