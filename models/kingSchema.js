@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const costumeSchema = mongoose.Schema({
+const kingSchema = mongoose.Schema({
 name: String,
 kingdom: String,
 years_ruled: Number
