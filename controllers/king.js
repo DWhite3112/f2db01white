@@ -20,9 +20,17 @@ exports.king_create_post = function(req, res) {
 res.send('NOT IMPLEMENTED: King create POST');
 };
 // Handle King delete form on DELETE.
-exports.king_delete = function(req, res) {
-res.send('NOT IMPLEMENTED: King delete DELETE ' + req.params.id);
-};
+exports.king_delete = async function(req, res) {
+    console.log("delete " + req.params.id)
+    try {
+    result = await King.findByIdAndDelete( req.params.id)
+    console.log("Removed " + result)
+    res.send(result)
+    } catch (err) {
+    res.status(500)
+    res.send(`{"error": Error deleting ${err}}`);
+    }
+    };
 // Handle King update form on PUT.
 exports.king_update_put = async function(req, res) {
     console.log(`update on id ${req.params.id} with body
