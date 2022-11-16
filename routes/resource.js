@@ -21,5 +21,8 @@ module.exports = router;
 
 /* GET detail king page */
 router.get('/detail', king_controller.king_view_one_Page);
-/* GET create costume page */
+/* GET create King page */
 router.get('/create', king_controller.king_create_Page);
+//part 6
+/* GET create update page */
+router.get('/update', king_controller.king_update_Page);

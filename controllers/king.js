@@ -105,3 +105,17 @@ exports.king_create_Page = function(req, res) {
     res.send(`{'error': '${err}'}`);
     }
 };
+//part 6
+// Handle building the view for updating a king.
+// query provides the id
+exports.king_update_Page = async function(req, res) {
+console.log("update view for item "+req.query.id)
+try{
+let result = await King.findById(req.query.id)
+res.render('kingupdate', { title: 'King Update', toShow: result });
+}
+catch(err){
+res.status(500)
+res.send(`{'error': '${err}'}`);
+}
+};
