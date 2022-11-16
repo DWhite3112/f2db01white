@@ -1,0 +1,20 @@
+extends layout
+block content
+h1= title
+- let kingid = toShow._id
+- let king_type = toShow.king_type
+- let kingcost = toShow.cost
+- let kingsize = toShow.size
+div
+div.row
+div(class='kingAttr mr-3') King ID is:
+div #{kingid}
+div.row
+div(class='kingAttr mr-3') King Name is:
+div #{king_type}
+div.row
+div(class='kingAttr mr-3') The Kingdom is:
+div #{costumesize}
+div.row
+div(class='kingAttr mr-3') Years ruled were:
+div #{costumecost}

@@ -18,3 +18,5 @@ router.get('/king/:id', king_controller.king_detail);
 // GET request for list of all King items.
 router.get('/king', king_controller.king_list);
 module.exports = router;
+/* GET detail king page */
+router.get('/detail', king_controlers.king_view_one_Page);

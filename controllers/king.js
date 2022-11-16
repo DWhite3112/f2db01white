@@ -38,10 +38,10 @@ exports.king_update_put = async function(req, res) {
     try {
     let toUpdate = await King.findById( req.params.id)
     // Do updates of properties
-    if(req.body.king_type)
-    toUpdate.king_type = req.body.king_type;
-    if(req.body.cost) toUpdate.cost = req.body.cost;
-    if(req.body.size) toUpdate.size = req.body.size;
+    if(req.body.king_name)
+    toUpdate.king_name = req.body.king_name;
+    if(req.body.kingdom) toUpdate.kingdom = req.body.kingdom;
+    if(req.body.years_ruled) toUpdate.years_ruled = req.body.years_ruled;
     let result = await toUpdate.save();
     console.log("Sucess " + result)
     res.send(result)
@@ -77,6 +77,18 @@ res.send(`{"error": ${err}}`);
 var express = require('express');
 const king_controller= require('./controllers/king')
 var router = express.Router();
-/* GET kings */
-router.get('/', king_controller.king_view_all_Page );
-module.exports = router;
+
+//controller for part 4 
+// Handle a show one view with id specified by query
+exports.king_view_one_Page = async function(req, res) {
+    console.log("single view for id " + req.query.id)
+    try{
+    result = await King.findById( req.query.id)
+    res.render('kingdetail',
+    { title: 'King Detail', toShow: result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    };
