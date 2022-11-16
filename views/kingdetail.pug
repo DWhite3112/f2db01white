@@ -2,19 +2,19 @@ extends layout
 block content
 h1= title
 - let kingid = toShow._id
-- let king_type = toShow.king_type
-- let kingcost = toShow.cost
-- let kingsize = toShow.size
+- let king_name  = toShow.king_name 
+- let kingdom  = toShow.kingdom
+- let years_ruled = toShow.years_ruled
 div
 div.row
 div(class='kingAttr mr-3') King ID is:
 div #{kingid}
 div.row
 div(class='kingAttr mr-3') King Name is:
-div #{king_type}
+div #{king_name}
 div.row
 div(class='kingAttr mr-3') The Kingdom is:
-div #{costumesize}
+div #{kingdom}
 div.row
 div(class='kingAttr mr-3') Years ruled were:
-div #{costumecost}
+div #{years_ruled}

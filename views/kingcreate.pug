@@ -1,0 +1,31 @@
+extends layout
+block content
+h1= title
+form(id='KingForm', action="/resource/king", method="POST")
+div.form-group
+label.kingAttr(for='king_name') King name
+input#king_name(type='text', name='king_name')
+div.form-group
+label.kingAttr(for='kingdom') Kingdom
+input#kingdom(type='text', name='kingdom')
+div.form-group
+label.kingAttr(for='years_ruled') Years ruled
+input#years_ruled(type='number', name='years_ruled')
+input(type="submit")
+script.
+document.forms['KingForm'].addEventListener('submit', (event) => {
+event.preventDefault();
+// TODO do something here to show user that form is being submitted
+fetch(event.target.action, {
+method: 'POST',
+body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+}).then((resp) => {
+return resp.json(); // or resp.text() or whatever the server sends
+}).then((body) => {
+alert("Save succeded")
+// TODO handle body
+}).catch((error) => {
+// TODO handle error
+alert("Save failed " + error )
+});
+});
