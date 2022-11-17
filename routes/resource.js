@@ -26,3 +26,6 @@ router.get('/create', king_controller.king_create_Page);
 //part 6
 /* GET create update page */
 router.get('/update', king_controller.king_update_Page);
+//part 7
+/* GET delete king page */
+router.get('/delete', king_controller.king_delete_Page);
