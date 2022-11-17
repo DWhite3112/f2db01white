@@ -23,19 +23,19 @@ label.kingAttr(for='years_ruled') Years ruled
 input#years_ruled(type='number', name='years_ruled', value= years_ruled)
 input(type="submit")
 script.
-document.forms['KingForm'].addEventListener('submit', (event) => {
-event.preventDefault();
-// TODO do something here to show user that form is being submitted
-fetch(event.target.action, {
-method: 'PUT',
-body: new URLSearchParams(new FormData(event.target)) // event.target is the form
-}).then((resp) => {
-return resp.json(); // or resp.text() or whatever the server sends
-}).then((body) => {
-alert("Save succeded")
-// TODO handle body
-}).catch((error) => {
-// TODO handle error
-alert("Save failed " + error )
-});
-});
+ document.forms['KingForm'].addEventListener('submit', (event) => {
+ event.preventDefault();
+ // TODO do something here to show user that form is being submitted
+ fetch(event.target.action, {
+ method: 'PUT',
+ body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+ }).then((resp) => {
+ return resp.json(); // or resp.text() or whatever the server sends
+ }).then((body) => {
+ alert("Save succeded")
+ // TODO handle body
+ }).catch((error) => {
+ // TODO handle error
+ alert("Save failed " + error )
+ });
+ });
