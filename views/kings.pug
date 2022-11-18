@@ -5,7 +5,13 @@ block content
   p Welcome to #{title}
   p hello world
   // kings pug
-
+  -let items = result;
+    div(class="container-fluid")
+    div(class="row")
+    each item in items
+      div(class="row-sm-2", class="m-1") #{item.king_name}
+      div(class="row-sm-2", class="m-1") #{item.kingdom}
+      div(class="row-sm-2", class="m-1") #{item.years_ruled}
 
 
        

@@ -28,21 +28,21 @@ async function recreatDB(){
   await King.deleteMany();
 
   let instance1 = new
-  King({name:"Dree", kingdom:'the world',
+  King({king_name:"Dree", kingdom:'the world',
 years_ruled:300});
 instance1.save( function(err,doc) {
 if(err) return console.error(err);
 console.log("First object saved")
 });
   let instance2 = new
-  King({name:"Alexander", kingdom:'Macedonia',
+  King({king_name:"Alexander", kingdom:'Macedonia',
 years_ruled:33});
 instance2.save( function(err,doc) {
 if(err) return console.error(err);
 console.log("First object saved")
 });
   let instance3 = new
-  King({name:"Alfred", kingdom:'Wessex',
+  King({king_name:"Alfred", kingdom:'Wessex',
 years_ruled:51});
 instance3.save( function(err,doc) {
 if(err) return console.error(err);

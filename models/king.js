@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const kingSchema = mongoose.Schema({
-name: String,
+king_name: String,
 kingdom: String,
 years_ruled: Number
 })
