@@ -10,7 +10,7 @@ h1= title
 div.row(class='mb-2')
 div.mr-1 ID is
 div #{kingid}
-- let actionid = "/resource/king/" + kingid
+-let actionid = "/resource/king/" + kingid
 form(id='KingForm', action= kingid, method="PUT")
 div.form-group
 label.kingAttr(for='king_name') King name
@@ -22,6 +22,19 @@ div.form-group
 label.kingAttr(for='years_ruled') Years ruled
 input#years_ruled(type='number', name='years_ruled', value= years_ruled)
 input(type="submit")
+
+div(class="container-fluid")
+div(class="row m-1")
+ each item in items
+ - let destination = `dispatch(\"/kings/update?id=${item._id}\")`
+    div(class="row-sm-2", class="m-1") Item #{item.king_name}(#{item.kingdom}) is #{item.years_ruled}
+    button.btn( class="btn-primary ml-1", onclick= destination) Update
+script.
+    function dispatch(path){
+    window.location.href=path
+}
+
+
 script.
  document.forms['KingForm'].addEventListener('submit', (event) => {
  event.preventDefault();
