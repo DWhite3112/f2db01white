@@ -25,7 +25,17 @@ router.get('/detail', king_controller.king_view_one_Page);
 router.get('/create', king_controller.king_create_Page);
 //part 6
 /* GET create update page */
-router.get('/update', king_controller.king_update_Page);
+router.get('/update',secured, king_controller.king_update_Page);
+// A little function to check if we have an authorized user and continue on
+or
+// redirect to login.
+const secured = (req, res, next) => {
+if (req.user){
+return next();
+}
+req.session.returnTo = req.originalUrl;
+res.redirect("/login");
+}
 //part 7
 /* GET delete king page */
 router.get('/delete', king_controller.king_delete_Page);

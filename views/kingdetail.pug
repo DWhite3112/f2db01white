@@ -1,20 +1,22 @@
 extends layout
+
 block content
-h1= title
--let kingid = toShow._id
--let king_name  = toShow.king_name 
--let kingdom  = toShow.kingdom
--let years_ruled = toShow.years_ruled
+ h1= title
+
+ -let kingid = toShow._id
+ -let king_name  = toShow.king_name 
+ -let kingdom  = toShow.kingdom
+ -let years_ruled = toShow.years_ruled
 div
-div.row
-div(class='kingAttr mr-3') King ID is:
-div #{kingid}
-div.row
-div(class='kingAttr mr-3') King Name is:
-div #{king_name}
-div.row
-div(class='kingAttr mr-3') The Kingdom is:
-div #{kingdom}
-div.row
-div(class='kingAttr mr-3') Years ruled were:
-div #{years_ruled}
+ div.row
+  div(class='kingAttr mr-3') King ID is:
+  div #{kingid}
+ div.row
+  div(class='kingAttr mr-3') King Name is:
+  div #{king_name}
+ div.row
+  div(class='kingAttr mr-3') The Kingdom is:
+  div #{kingdom}
+ div.row
+  div(class='kingAttr mr-3') Years ruled were:
+  div #{years_ruled}
