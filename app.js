@@ -76,8 +76,8 @@ if (reseed) {recreatDB();
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var kingsRouter = require('./routes/kings');
-var gridbuildRouter = require('./routes/gridbuild')
-var resourceRouter = require('./routes/resource')
+var gridbuildRouter = require('./routes/gridbuild');
+var resourceRouter = require('./routes/resource');
 var app = express();
 
 // view engine setup
